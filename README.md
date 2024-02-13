@@ -12,8 +12,8 @@
 - [ ] Trending movie section
     - [ ] Trailer in Background
     - [ ] Title and Description
-[ ] Movie Recommendation
+- [ ] Movie Recommendation
     - [ ] a list of movies based on categories
-[ ] Integrating Netflix into the project
+- [ ] Integrating Netflix into the project
     - [ ] Search bar
     - [ ] Movie suggestions based on GPT
