@@ -4,6 +4,7 @@ import BrowsePage from "./BrowsePage";
 
 //routing using react router dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ForgotPassword from "./ForgotPassword";
 
 const Body = () => {
 	const appRouter = createBrowserRouter([
@@ -14,6 +15,10 @@ const Body = () => {
 		{
 			path: "/browse",
 			element: <BrowsePage />,
+		},
+		{
+			path: "/forgot",
+			element: <ForgotPassword />,
 		},
 	]);
 
