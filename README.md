@@ -3,6 +3,8 @@
 #### It's like having your own personal movie buddy and AI assistant rolled into one! 🤯
 
 ## Features(To do list):
+- [X] Configuring the project with vite, tailwind, shadcn
+- [X] Setting up the Routing using React Router DOM
 - [ ] Login and Sign up Page
 - [ ] Setting up Firebase for the project
 - [ ] Creating a Forget Password Page
