@@ -6,6 +6,7 @@
 - [X] Configuring the project with vite, tailwind, shadcn
 - [X] Setting up the Routing using React Router DOM
 - [ ] Login and Sign up Page
+- [ ] Forgot Password Page
 - [ ] Setting up Firebase for the project
 - [ ] Creating a Forget Password Page
 - [ ] Form handling 
