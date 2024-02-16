@@ -7,8 +7,18 @@ import { Button } from "./ui/button";
 
 //react router dom
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
 
 const ForgotPassword = () => {
+	const form = useForm();
+	const { register, control, handleSubmit, formState } = form;
+	const { errors } = formState;
+
+	const submitPasswordReset = (data) => {
+		console.log("Email Id:", data?.email);
+	};
+
 	return (
 		<div className="">
 			{/* first we need to import the header */}
@@ -23,6 +33,8 @@ const ForgotPassword = () => {
 			<form
 				action=""
 				className="px-14 py-10 bg-slate-800 absolute w-1/2 lg:w-5/12 xl:w-3/12 xl:px-16 mt-44 right-0 left-0 mx-auto opacity-70 rounded-xl"
+				onSubmit={handleSubmit(submitPasswordReset)}
+				noValidate
 			>
 				<div className="text-slate-100 font-bold text-3xl mb-8">
 					Forgot Password ?
@@ -34,9 +46,29 @@ const ForgotPassword = () => {
 				</p>
 				<Input
 					type="email"
-					className="bg-slate-700 text-slate-50 my-4 font-bold text-base py-6 focus:outline-2 focus:outline-slate-50  invalid:outline-none invalid:border-2 invalid:border-pink-600 invalid:text-pink-700"
+					className="bg-slate-700 text-slate-50 my-4 font-bold text-base py-6 focus:outline-2 focus:outline-slate-50"
 					placeholder="Email"
+					{...register("email", {
+						required: {
+							value: true,
+							message: "Email id required",
+						},
+						pattern: {
+							value:
+								/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+							message: "Please Enter a valid Email",
+						},
+						validate: {
+							notAdmin: (feildValue) => {
+								return (
+									feildValue !== "admin@test.com" || "You are not an admin"
+								);
+							},
+						},
+					})}
 				/>
+
+				<p className="pl-1 text-red-600 font-bold">{errors.email?.message}</p>
 
 				<Button
 					size="lg"
@@ -51,6 +83,7 @@ const ForgotPassword = () => {
 					</span>
 				</div>
 			</form>
+			<DevTool control={control} />
 		</div>
 	);
 };

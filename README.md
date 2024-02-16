@@ -6,10 +6,17 @@
 - [X] Configuring the project with vite, tailwind, shadcn
 - [X] Setting up the Routing using React Router DOM
 - [ ] Login and Sign up Page
+    - [X] Creating the Page
+    - [ ] Adding the Functionality
 - [ ] Forgot Password Page
+    - [X] Creating the Page
+    - [ ] Adding the Functionality
+- [X] Form Handling and Validation using React Hook Form (RHF)
+    - [X] Installing and setting up RHF into the Project
+    - [X] Managing the data using RHF
+    - [X] Performing Form validation using RHF
+    - [X] Both Login and Forgot Password Page
 - [ ] Setting up Firebase for the project
-- [ ] Creating a Forget Password Page
-- [ ] Form handling 
 - [ ] Setting up Protected Routes 
 - [ ] Header
 - [ ] Trending movie section
