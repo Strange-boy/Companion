@@ -3,6 +3,7 @@ import { useState } from "react";
 //shadcn components
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import toast from "react-hot-toast";
 
 //in order to import the components
 import Header from "./Header";
@@ -17,6 +18,13 @@ import { NETFLIX_BG_IMG } from "@/utils/common";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 
+//in order to import firebase functionality
+import { auth } from "@/utils/firebase";
+import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
+
 const LoginPage = () => {
 	const [logIn, setLogIn] = useState(true);
 
@@ -25,8 +33,77 @@ const LoginPage = () => {
 	const { errors } = formState;
 	const passwordValue = watch("password");
 
+	//contains the form data
 	const submitDataForVerification = (data) => {
 		console.log("Form data:", data);
+
+		const userName = data?.name;
+		const userEmail = data?.email;
+		const userPassword = data?.password;
+		const userPhone = data?.phone;
+
+		if (!logIn) {
+			//if the user enters the SIGN UP PAGE
+			createUserWithEmailAndPassword(auth, userEmail, userPassword)
+				.then((userCredential) => {
+					const user = userCredential.user;
+
+					//update all the user credentials
+					user.displayName = userName;
+					user.phoneNumber = userPhone;
+					console.log("User details:", user);
+
+					toast.success("Sign up successful", {
+						style: {
+							borderRadius: "10px",
+							background: "#333",
+							color: "#fff",
+						},
+					});
+				})
+				.catch((error) => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+
+					toast.error("User is already registered", {
+						style: {
+							borderRadius: "10px",
+							background: "#333",
+							color: "#fff",
+						},
+					});
+				});
+		} else {
+			//this deals when the user LOG IN
+			signInWithEmailAndPassword(auth, userEmail, userPassword)
+				.then((userCredential) => {
+					// Signed in
+					const user = userCredential.user;
+					console.log("User:", user);
+					console.log("User successfully logged in");
+					// ...
+					toast.success("Logged in", {
+						style: {
+							borderRadius: "10px",
+							background: "#333",
+							color: "#fff",
+						},
+					});
+				})
+				.catch((error) => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+
+					console.log(errorMessage);
+					toast.error("Invalid Credentials", {
+						style: {
+							borderRadius: "10px",
+							background: "#333",
+							color: "#fff",
+						},
+					});
+				});
+		}
 	};
 
 	//in order to toggle between log in page and sign up page
@@ -106,6 +183,7 @@ const LoginPage = () => {
 				<Input
 					type="email"
 					className="bg-slate-700 text-slate-50 my-4 font-bold text-base py-6 focus:outline-2 focus:outline-slate-50"
+					autoComplete="username"
 					placeholder="Email"
 					{...register("email", {
 						required: {
@@ -132,6 +210,7 @@ const LoginPage = () => {
 					type="password"
 					className="bg-slate-700 text-slate-50 my-4 font-bold text-base py-6 focus:outline-2 focus:outline-slate-50 "
 					placeholder="Password"
+					autoComplete="current-password"
 					{...register("password", {
 						required: {
 							value: true,
@@ -160,6 +239,7 @@ const LoginPage = () => {
 						<Input
 							type="password"
 							className="bg-slate-700 text-slate-50 my-4 font-bold text-base py-6 focus:outline-2 focus:outline-slate-50 "
+							autoComplete="username"
 							placeholder="Confirm Password"
 							{...register("confirmPassword", {
 								required: {

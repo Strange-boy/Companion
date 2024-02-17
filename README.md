@@ -5,9 +5,9 @@
 ## Features(To do list):
 - [X] Configuring the project with vite, tailwind, shadcn
 - [X] Setting up the Routing using React Router DOM
-- [ ] Login and Sign up Page
+- [X] Login and Sign up Page
     - [X] Creating the Page
-    - [ ] Adding the Functionality
+    - [X] Adding the Functionality
 - [ ] Forgot Password Page
     - [X] Creating the Page
     - [ ] Adding the Functionality
@@ -16,7 +16,11 @@
     - [X] Managing the data using RHF
     - [X] Performing Form validation using RHF
     - [X] Both Login and Forgot Password Page
+- [X] Installing and Integration React hot notifications into the project
 - [ ] Setting up Firebase for the project
+    - [X] Setting and configuring the project in firebase
+    - [X] Creating the Sign up and Log in Functionality
+    - [ ] Creating the forgot password Functionality
 - [ ] Setting up Protected Routes 
 - [ ] Header
 - [ ] Trending movie section
