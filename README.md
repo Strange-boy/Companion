@@ -21,6 +21,12 @@
     - [X] Setting and configuring the project in firebase
     - [X] Creating the Sign up and Log in Functionality
     - [ ] Creating the forgot password Functionality
+- [ ] Configuring Redux ToolKit for state management
+    - [X] Installing the dependencies
+    - [X] Creating the app store
+    - [X] Connecting the app store to the application
+    - [X] Creating the user slice to store the user data
+    - [ ] Adding the user data from the sign in / sign up
 - [ ] Setting up Protected Routes 
 - [ ] Header
 - [ ] Trending movie section
