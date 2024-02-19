@@ -10,13 +10,45 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 
+import toast from "react-hot-toast";
+
+//firebase functionality
+import { auth } from "@/utils/firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
+
 const ForgotPassword = () => {
 	const form = useForm();
 	const { register, control, handleSubmit, formState } = form;
 	const { errors } = formState;
 
 	const submitPasswordReset = (data) => {
-		console.log("Email Id:", data?.email);
+		const userEmail = data?.email;
+
+		//in order to send the password reset mail
+		sendPasswordResetEmail(auth, userEmail)
+			.then(() => {
+				console.log("Password reset mail successfully sent");
+				toast.success("Password reset mail sent", {
+					style: {
+						borderRadius: "10px",
+						background: "#333",
+						color: "#fff",
+					},
+				});
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+
+				console.log(errorCode + " " + errorMessage);
+				toast.error("Email not registered", {
+					style: {
+						borderRadius: "10px",
+						background: "#333",
+						color: "#fff",
+					},
+				});
+			});
 	};
 
 	return (

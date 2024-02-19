@@ -33,6 +33,8 @@ const LoginPage = () => {
 	const { errors } = formState;
 	const passwordValue = watch("password");
 
+	//in order to check something
+
 	//contains the form data
 	const submitDataForVerification = (data) => {
 		console.log("Form data:", data);
@@ -51,7 +53,6 @@ const LoginPage = () => {
 					//update all the user credentials
 					user.displayName = userName;
 					user.phoneNumber = userPhone;
-					console.log("User details:", user);
 
 					toast.success("Sign up successful", {
 						style: {
@@ -79,8 +80,6 @@ const LoginPage = () => {
 				.then((userCredential) => {
 					// Signed in
 					const user = userCredential.user;
-					console.log("User:", user);
-					console.log("User successfully logged in");
 					// ...
 					toast.success("Logged in", {
 						style: {
