@@ -13,9 +13,8 @@ import { DevTool } from "@hookform/devtools";
 import toast from "react-hot-toast";
 
 //firebase functionality
-import { auth, db } from "@/utils/firebase";
+import { auth } from "@/utils/firebase";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { collection, getDoc, getDocs, query, where } from "firebase/firestore";
 
 const ForgotPassword = () => {
 	const form = useForm();
@@ -25,6 +24,21 @@ const ForgotPassword = () => {
 	const submitPasswordReset = async (data) => {
 		const { email } = data;
 		// console.log("email", email);
+		sendPasswordResetEmail(auth, email)
+			.then(() => {
+				toast.success("Password reset mail sent", {
+					style: {
+						borderRadius: "10px",
+						background: "#333",
+						color: "#fff",
+					},
+				});
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				// ..
+			});
 	};
 
 	return (

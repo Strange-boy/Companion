@@ -8,20 +8,19 @@
 - [X] Login and Sign up Page
     - [X] Creating the Page
     - [X] Adding the Functionality
-- [ ] Forgot Password Page
+- [X] Forgot Password Page
     - [X] Creating the Page
-    - [ ] Adding the Functionality
+    - [X] Adding the Functionality
 - [X] Form Handling and Validation using React Hook Form (RHF)
     - [X] Installing and setting up RHF into the Project
     - [X] Managing the data using RHF
     - [X] Performing Form validation using RHF
     - [X] Both Login and Forgot Password Page
 - [X] Installing and Integration React hot notifications into the project
-- [ ] Setting up Firebase for the project
+- [X] Setting up Firebase for the project
     - [X] Setting and configuring the project in firebase
     - [X] Creating the Sign up and Log in Functionality
-    - [ ] Creating the forgot password Functionality
-        - [ ] use fireStore to create user data to perform cross validation
+    - [X] Creating the forgot password Functionality
 - [ ] Configuring Redux ToolKit for state management
     - [X] Installing the dependencies
     - [X] Creating the app store
@@ -29,9 +28,9 @@
     - [X] Creating the user slice to store the user data
     - [ ] Adding the user data from the sign in / sign up
     - [ ] Removing the user data while signing out
-- [ ] Modifying the Header component in browse
-    - [ ] Adding the user icon along with drop down
-    - [ ] Drop down should contain account setting and sign out option
+- [X] Modifying the Header component in browse
+    - [X] Adding the user icon along with drop down
+    - [X] Drop down should contain account setting and sign out option
     - [ ] Implement the sign out feature
         - [ ] Add an alert box along with a creative message
         - [ ] On clicking yes navigate to log in page.
