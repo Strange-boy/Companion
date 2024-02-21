@@ -5,6 +5,10 @@ import BrowsePage from "./BrowsePage";
 //routing using react router dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ForgotPassword from "./ForgotPassword";
+import { useEffect } from "react";
+
+//firebase functionality
+import { onAuthStateChanged } from "firebase/auth";
 
 const Body = () => {
 	const appRouter = createBrowserRouter([

@@ -12,18 +12,20 @@ import Header from "./Header";
 import { Link } from "react-router-dom";
 
 //in order to import the image
-import { NETFLIX_BG_IMG } from "@/utils/common";
+import { NETFLIX_BG_IMG, DEFAULT_USER_IMAGE } from "@/utils/common";
 
 //for form validation using RHF
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 
 //in order to import firebase functionality
-import { auth } from "@/utils/firebase";
+import { auth, db } from "@/utils/firebase";
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
+	updateProfile,
 } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
 
 const LoginPage = () => {
 	const [logIn, setLogIn] = useState(true);
@@ -33,34 +35,51 @@ const LoginPage = () => {
 	const { errors } = formState;
 	const passwordValue = watch("password");
 
-	//in order to check something
+	//in order to add data into firestore
+	const addDataToFirestore = async (name, email) => {
+		const docRef = await addDoc(collection(db, "users"), {
+			name: name,
+			email: email,
+		});
+
+		console.log("Document written with ID: ", docRef);
+	};
 
 	//contains the form data
 	const submitDataForVerification = (data) => {
 		console.log("Form data:", data);
 
-		const userName = data?.name;
-		const userEmail = data?.email;
-		const userPassword = data?.password;
-		const userPhone = data?.phone;
+		const { email, password } = data;
 
 		if (!logIn) {
 			//if the user enters the SIGN UP PAGE
-			createUserWithEmailAndPassword(auth, userEmail, userPassword)
+			createUserWithEmailAndPassword(auth, email, password)
 				.then((userCredential) => {
 					const user = userCredential.user;
+					const { name } = data;
 
-					//update all the user credentials
-					user.displayName = userName;
-					user.phoneNumber = userPhone;
+					//in order to add the data to firestore
+					addDataToFirestore(name, email);
 
-					toast.success("Sign up successful", {
-						style: {
-							borderRadius: "10px",
-							background: "#333",
-							color: "#fff",
-						},
-					});
+					//we need to update the data to user object
+					updateProfile(user, {
+						displayName: name,
+						photoURL: DEFAULT_USER_IMAGE,
+					})
+						.then(() => {
+							console.log("updated details:", user);
+							toast.success("Sign up successful", {
+								style: {
+									borderRadius: "10px",
+									background: "#333",
+									color: "#fff",
+								},
+							});
+						})
+						.catch((error) => {
+							console.log("Error in updating the account details");
+							console.log(error.message);
+						});
 				})
 				.catch((error) => {
 					const errorCode = error.code;
@@ -76,7 +95,7 @@ const LoginPage = () => {
 				});
 		} else {
 			//this deals when the user LOG IN
-			signInWithEmailAndPassword(auth, userEmail, userPassword)
+			signInWithEmailAndPassword(auth, email, password)
 				.then((userCredential) => {
 					// Signed in
 					const user = userCredential.user;
@@ -148,33 +167,6 @@ const LoginPage = () => {
 						/>
 						<p className="pl-1 text-red-600 font-bold">
 							{errors.name?.message}
-						</p>
-					</>
-				)}
-
-				{!logIn && (
-					<>
-						<Input
-							type="tel"
-							className="bg-slate-700 text-slate-50 my-4 font-bold text-base py-6 focus:outline-2 focus:outline-slate-50 "
-							placeholder="Phone"
-							{...register("phone", {
-								required: {
-									value: true,
-									message: "Phone number cannot be empty",
-								},
-								validate: {
-									lessThanTenDigit: (feildValue) => {
-										return (
-											feildValue.length === 10 ||
-											"Phone number is not 10 digits"
-										);
-									},
-								},
-							})}
-						/>
-						<p className="pl-1 text-red-600 font-bold">
-							{errors.phone?.message}
 						</p>
 					</>
 				)}
