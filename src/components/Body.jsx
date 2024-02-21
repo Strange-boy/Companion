@@ -9,8 +9,12 @@ import { useEffect } from "react";
 
 //firebase functionality
 import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "@/utils/redux/userSlice";
 
 const Body = () => {
+	const dispatch = useDispatch();
 	const appRouter = createBrowserRouter([
 		{
 			path: "/",
@@ -25,6 +29,24 @@ const Body = () => {
 			element: <ForgotPassword />,
 		},
 	]);
+
+	useEffect(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				const { uid, email, displayName, photoURL } = user;
+				dispatch(
+					addUser({
+						uid: uid,
+						email: email,
+						displayName: displayName,
+						photoURL: photoURL,
+					})
+				);
+			} else {
+				dispatch(removeUser());
+			}
+		});
+	}, []);
 
 	return (
 		<div>

@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import Header from "./Header";
 
 //in order to import components from react router dom
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 //in order to import the image
 import { NETFLIX_BG_IMG, DEFAULT_USER_IMAGE } from "@/utils/common";
@@ -26,28 +26,23 @@ import {
 	updateProfile,
 } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { addUser } from "@/utils/redux/userSlice";
 
 const LoginPage = () => {
 	const [logIn, setLogIn] = useState(true);
 
 	const form = useForm();
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const { register, control, handleSubmit, formState, watch } = form;
 	const { errors } = formState;
 	const passwordValue = watch("password");
 
-	//in order to add data into firestore
-	const addDataToFirestore = async (name, email) => {
-		const docRef = await addDoc(collection(db, "users"), {
-			name: name,
-			email: email,
-		});
-
-		console.log("Document written with ID: ", docRef);
-	};
-
 	//contains the form data
 	const submitDataForVerification = (data) => {
-		console.log("Form data:", data);
+		// console.log("Form data:", data);
 
 		const { email, password } = data;
 
@@ -58,16 +53,23 @@ const LoginPage = () => {
 					const user = userCredential.user;
 					const { name } = data;
 
-					//in order to add the data to firestore
-					addDataToFirestore(name, email);
-
 					//we need to update the data to user object
 					updateProfile(user, {
 						displayName: name,
 						photoURL: DEFAULT_USER_IMAGE,
 					})
 						.then(() => {
-							console.log("updated details:", user);
+							// console.log("updated details:", user);
+							const { uid, email, displayName, photoURL } = user;
+							dispatch(
+								addUser({
+									uid: uid,
+									email: email,
+									displayName: displayName,
+									photoURL: photoURL,
+								})
+							);
+
 							toast.success("Sign up successful", {
 								style: {
 									borderRadius: "10px",
@@ -75,6 +77,8 @@ const LoginPage = () => {
 									color: "#fff",
 								},
 							});
+
+							navigate("/browse");
 						})
 						.catch((error) => {
 							console.log("Error in updating the account details");
@@ -100,6 +104,7 @@ const LoginPage = () => {
 					// Signed in
 					const user = userCredential.user;
 					// ...
+					navigate("./browse");
 					toast.success("Logged in", {
 						style: {
 							borderRadius: "10px",
