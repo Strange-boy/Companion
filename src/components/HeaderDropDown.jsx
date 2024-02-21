@@ -42,7 +42,6 @@ export default function HeaderDropDown() {
 						color: "#fff",
 					},
 				});
-
 				//navigate the user to log in page
 				navigate("/");
 			})
@@ -61,16 +60,15 @@ export default function HeaderDropDown() {
 
 	//in order to change the svg on button click
 	const handleButtonClick = () => {
-		console.log("clicked");
-		// setDropDown(!dropDown);
+		setDropDown(!dropDown);
 	};
 
 	return (
-		<DropdownMenu>
+		<DropdownMenu onOpenChange={handleButtonClick}>
 			<DropdownMenuTrigger asChild>
-				<Button variant="icon" onClick={handleButtonClick}>
+				<Button variant="icon">
 					<img
-						src={user.photoURL}
+						src={user?.photoURL}
 						alt="user-pic"
 						className="w-8 rounded-md mx-2"
 					/>
@@ -82,7 +80,7 @@ export default function HeaderDropDown() {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="w-56 bg-slate-700 text-slate-50 font-sans opacity-80 font-semibold">
-				<DropdownMenuLabel>{user.displayName}</DropdownMenuLabel>
+				<DropdownMenuLabel>{user?.displayName}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
 					<DropdownMenuItem>

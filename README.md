@@ -21,19 +21,18 @@
     - [X] Setting and configuring the project in firebase
     - [X] Creating the Sign up and Log in Functionality
     - [X] Creating the forgot password Functionality
-- [ ] Configuring Redux ToolKit for state management
+- [X] Configuring Redux ToolKit for state management
     - [X] Installing the dependencies
     - [X] Creating the app store
     - [X] Connecting the app store to the application
     - [X] Creating the user slice to store the user data
-    - [ ] Adding the user data from the sign in / sign up
-    - [ ] Removing the user data while signing out
+    - [X] Adding the user data from the sign in / sign up
+    - [X] Removing the user data while signing out
 - [X] Modifying the Header component in browse
     - [X] Adding the user icon along with drop down
     - [X] Drop down should contain account setting and sign out option
-    - [ ] Implement the sign out feature
-        - [ ] Add an alert box along with a creative message
-        - [ ] On clicking yes navigate to log in page.
+    - [X] Implement the sign out feature
+        - [X] On clicking yes navigate to log in page.
 - [ ] Setting up Protected Routes 
 - [ ] Header
 - [ ] Trending movie section
