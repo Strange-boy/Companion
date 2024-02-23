@@ -39,8 +39,6 @@ export default function LogoutAlert() {
 						color: "#fff",
 					},
 				});
-				//navigate the user to log in page
-				navigate("/");
 			})
 			.catch((error) => {
 				// An error happened.
@@ -62,7 +60,7 @@ export default function LogoutAlert() {
 					<FontAwesomeIcon icon={faRightFromBracket} size="lg" />
 				</Button>
 			</AlertDialogTrigger>
-			<AlertDialogContent className="bg-slate-800">
+			<AlertDialogContent className="bg-slate-900 opacity-70">
 				<AlertDialogHeader>
 					<AlertDialogTitle className="text-white">
 						🤔 Are you absolutely sure?

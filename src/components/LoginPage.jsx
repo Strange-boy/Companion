@@ -77,8 +77,6 @@ const LoginPage = () => {
 									color: "#fff",
 								},
 							});
-
-							navigate("/browse");
 						})
 						.catch((error) => {
 							console.log("Error in updating the account details");
@@ -104,7 +102,6 @@ const LoginPage = () => {
 					// Signed in
 					const user = userCredential.user;
 					// ...
-					navigate("./browse");
 					toast.success("Logged in", {
 						style: {
 							borderRadius: "10px",

@@ -19,13 +19,22 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 import { useState } from "react";
 
+//firebase auth feature
+import { auth } from "@/utils/firebase";
+import { useNavigate } from "react-router-dom";
+
 export default function HeaderDropDown() {
+	const navigate = useNavigate();
 	const user = auth.currentUser;
 	const [dropDown, setDropDown] = useState(false);
 
 	//in order to change the svg on button click
 	const handleButtonClick = () => {
 		setDropDown(!dropDown);
+	};
+
+	const handleSettingClick = () => {
+		navigate("/settings");
 	};
 
 	return (
@@ -49,8 +58,7 @@ export default function HeaderDropDown() {
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
 					<DropdownMenuItem>
-						Settings
-						<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+						<span onClick={handleSettingClick}>Settings</span>
 					</DropdownMenuItem>
 				</DropdownMenuGroup>
 			</DropdownMenuContent>

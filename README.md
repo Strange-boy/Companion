@@ -35,7 +35,10 @@
         - [X] should show alert box with a creative message
         - [X] On clicking it navigate to log in page.
 - [ ] Setting up Protected Routes 
-- [ ] Header
+    - [X] Redirects the user to login page, session expires
+    - [X] Redirects the user to main page, session is active
+- [ ] Good practices
+    - [X] Unsubscribing to on auth state change in useEffect to remove event listeners
 - [ ] Trending movie section
     - [ ] Trailer in Background
     - [ ] Title and Description

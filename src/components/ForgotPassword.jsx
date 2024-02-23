@@ -45,11 +45,11 @@ const ForgotPassword = () => {
 		<div className="">
 			{/* first we need to import the header */}
 			<Header />
-			<div className="absolute w-full">
+			<div className="absolute w-full h-screen">
 				<img
 					src={NETFLIX_FORGOT_PASSWORD_IMG}
 					alt="bg-img"
-					className="min-h-screen min-w-full object-cover"
+					className="h-screen min-w-full object-cover"
 				/>
 			</div>
 			<form

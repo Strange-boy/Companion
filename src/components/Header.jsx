@@ -1,10 +1,42 @@
 import { HEADER_LOGO } from "@/utils/common";
 import HeaderDropDown from "./HeaderDropDown";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "@/utils/redux/userSlice";
 import LogoutAlert from "./LogoutAlert";
+
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "@/utils/firebase";
 
 const Header = () => {
 	const user = useSelector((store) => store.user);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		const unsubscribe = onAuthStateChanged(auth, (user) => {
+			if (user) {
+				const { uid, email, displayName, photoURL } = user;
+				dispatch(
+					addUser({
+						uid: uid,
+						email: email,
+						displayName: displayName,
+						photoURL: photoURL,
+					})
+				);
+
+				navigate("/browse");
+			} else {
+				dispatch(removeUser());
+				navigate("/");
+			}
+		});
+
+		return () => unsubscribe();
+	}, []);
+
 	return (
 		<div className="absolute z-40 mt-1 w-full flex justify-between ">
 			<div>
