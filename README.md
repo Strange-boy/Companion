@@ -32,7 +32,7 @@
     - [X] Adding the user icon along with drop down
     - [X] Drop down should contain account setting and sign out option
     - [X] Implement the sign out feature
-        - [X] On clicking yes navigate to log in page.
+        - [X] On clicking it navigate to log in page.
 - [ ] Setting up Protected Routes 
 - [ ] Header
 - [ ] Trending movie section
@@ -43,3 +43,28 @@
 - [ ] Integrating Netflix into the project
     - [ ] Search bar
     - [ ] Movie suggestions based on GPT
+
+Optional:
+- [ ] Add the option to Login with Google
+- [ ] Settings page for users
+
+
+## Learning through challenges:
+
+#### These are all the issues that I encountered while implementing the project:
+- 🤦‍♀️ Problem in forgot password feature (validation needed else it sends mail to everyone)
+    - Tried implementing it using firestore (bad idea => not meant for that purpose, strict security rules)
+    - Better approach: Try using mongo DB or any other database for this purpose
+- 📋 Handling form validation of multiple input fields, 
+    - custom form validation is awesome for small input cases , but for multiple validations you need better options
+    - Found out React hook form, Learned about it and implemented validation using React hook forms.
+    - Another alternative: Formik (Not explored it enough to say about it)
+- 🤝🏻 Tried to implement the remember me feature in log in 
+    - while looking out for it , I come to know firebase by default provides this option
+    -🍪 Explored about cookies and need for cookies
+- Tried to implement a drop down along with alert box (had issues with state) - after drop down closes , alert automatically closes (shadcn-ui).
+- 🛒 Tried using Redux ToolKit for state management 
+    - 📌 Forgot about the data flow, had to go through it again
+- 🛡️ Need of .env file to store the api keys
+    - your api keys should be protected, so I created env file to store the api keys
+    - There is a specific way of doing it for vite, refer the vite dox on env variables.
