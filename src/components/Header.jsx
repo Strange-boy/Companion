@@ -1,6 +1,7 @@
 import { HEADER_LOGO } from "@/utils/common";
 import HeaderDropDown from "./HeaderDropDown";
 import { useSelector } from "react-redux";
+import LogoutAlert from "./LogoutAlert";
 
 const Header = () => {
 	const user = useSelector((store) => store.user);
@@ -9,11 +10,16 @@ const Header = () => {
 			<div>
 				<img src={HEADER_LOGO} alt="logo" className="w-24 ml-6" />
 			</div>
-			{user && (
-				<div className="flex items-center mx-4">
-					<HeaderDropDown />
+			<div className="flex justify-center items-center mr-4">
+				<div>
+					{user && (
+						<div className="flex items-center">
+							<HeaderDropDown />
+						</div>
+					)}
 				</div>
-			)}
+				<div>{user && <LogoutAlert />}</div>
+			</div>
 		</div>
 	);
 };

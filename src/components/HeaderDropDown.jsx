@@ -17,46 +17,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-//in order to import the firebase functionality
-import { auth } from "@/utils/firebase";
-import { signOut } from "firebase/auth";
-
-import toast from "react-hot-toast";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export default function HeaderDropDown() {
 	const user = auth.currentUser;
 	const [dropDown, setDropDown] = useState(false);
-	const navigate = useNavigate();
-
-	//in order to handle the log out functions
-	const handleLogOut = () => {
-		signOut(auth)
-			.then(() => {
-				// Sign-out successful.
-				toast.success("Logged out", {
-					style: {
-						borderRadius: "10px",
-						background: "#333",
-						color: "#fff",
-					},
-				});
-				//navigate the user to log in page
-				navigate("/");
-			})
-			.catch((error) => {
-				// An error happened.
-				console.log(error.message);
-				toast.error("Logged out", {
-					style: {
-						borderRadius: "10px",
-						background: "#333",
-						color: "#fff",
-					},
-				});
-			});
-	};
 
 	//in order to change the svg on button click
 	const handleButtonClick = () => {
@@ -84,12 +49,8 @@ export default function HeaderDropDown() {
 				<DropdownMenuSeparator />
 				<DropdownMenuGroup>
 					<DropdownMenuItem>
-						Profile
+						Settings
 						<DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-					</DropdownMenuItem>
-					<DropdownMenuItem onClick={handleLogOut}>
-						Log out
-						<DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
 					</DropdownMenuItem>
 				</DropdownMenuGroup>
 			</DropdownMenuContent>

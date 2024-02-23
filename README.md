@@ -30,8 +30,9 @@
     - [X] Removing the user data while signing out
 - [X] Modifying the Header component in browse
     - [X] Adding the user icon along with drop down
-    - [X] Drop down should contain account setting and sign out option
+    - [X] Drop down should contain account setting 
     - [X] Implement the sign out feature
+        - [X] should show alert box with a creative message
         - [X] On clicking it navigate to log in page.
 - [ ] Setting up Protected Routes 
 - [ ] Header
