@@ -65,8 +65,9 @@ Optional:
     - Another alternative: Formik (Not explored it enough to say about it)
 - 🤝🏻 Tried to implement the remember me feature in log in 
     - while looking out for it , I come to know firebase by default provides this option
-    -🍪 Explored about cookies and need for cookies
+    - 🍪 Explored about cookies and need for cookies
 - Tried to implement a drop down along with alert box (had issues with state) - after drop down closes , alert automatically closes (shadcn-ui).
+    - [X] Solved the issue by sperating log out button
 - 🛒 Tried using Redux ToolKit for state management 
     - 📌 Forgot about the data flow, had to go through it again
 - 🛡️ Need of .env file to store the api keys

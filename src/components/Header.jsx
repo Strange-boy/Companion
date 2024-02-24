@@ -6,13 +6,14 @@ import LogoutAlert from "./LogoutAlert";
 
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { auth } from "@/utils/firebase";
 
 const Header = () => {
 	const user = useSelector((store) => store.user);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -30,7 +31,9 @@ const Header = () => {
 				navigate("/browse");
 			} else {
 				dispatch(removeUser());
-				navigate("/");
+
+				const forgotPassword = location.pathname.startsWith("/forgot");
+				if (!forgotPassword) navigate("/");
 			}
 		});
 

@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 //shadcn components
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
 import toast from "react-hot-toast";
 
 //in order to import the components
-import Header from "./Header";
+import Header from "../components/Header";
 
 //in order to import components from react router dom
 import { Link, useNavigate } from "react-router-dom";
@@ -19,13 +19,12 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 
 //in order to import firebase functionality
-import { auth, db } from "@/utils/firebase";
+import { auth } from "@/utils/firebase";
 import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	updateProfile,
 } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { addUser } from "@/utils/redux/userSlice";
 
@@ -261,7 +260,7 @@ const LoginPage = () => {
 
 				{/* forgot password displayed only in log in page */}
 				{logIn && (
-					<Link to="/forgot">
+					<Link to="/forgot-password">
 						<Button
 							size="lg"
 							variant="link"

@@ -1,8 +1,8 @@
 //importing the components
-import LoginPage from "./LoginPage";
-import BrowsePage from "./BrowsePage";
-import UserSettings from "./UserSettings";
-import ForgotPassword from "./ForgotPassword";
+import LoginPage from "@/pages/LoginPage";
+import BrowsePage from "@/pages/BrowsePage";
+import UserSettings from "../components/UserSettings";
+import ForgotPassword from "@/pages/ForgotPassword";
 
 //routing using react router dom
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -18,7 +18,7 @@ const Body = () => {
 			element: <BrowsePage />,
 		},
 		{
-			path: "/forgot",
+			path: "/forgot-password",
 			element: <ForgotPassword />,
 		},
 		{

@@ -1,9 +1,9 @@
-import Header from "./Header";
+import Header from "../components/Header";
 import { NETFLIX_FORGOT_PASSWORD_IMG } from "@/utils/common";
 
 //shadcn-ui components
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
 
 //react router dom
 import { Link } from "react-router-dom";

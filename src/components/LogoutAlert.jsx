@@ -22,11 +22,8 @@ import { signOut } from "firebase/auth";
 
 //in order to display the toast
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 export default function LogoutAlert() {
-	const navigate = useNavigate();
-
 	//in order to handle the log out functions
 	const handleLogOut = () => {
 		signOut(auth)
