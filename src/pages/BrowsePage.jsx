@@ -1,28 +1,32 @@
-import { TMDB_NOW_PLAYING, TMDB_MOVIES_OPTIONS } from "@/utils/common";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { addNowPlayingMovies } from "@/utils/redux/movieSlice";
+import useNowPlayingMovies from "@/hooks/useNowPlayingMovies";
+import useTrendingMovies from "@/hooks/useTrendingMovies";
+
+//in order to import the components
+import MainContainer from "@/components/movies/MainContainer";
+import SecondaryContainer from "@/components/movies/SecondaryContainer";
 
 const BrowsePage = () => {
-	const dispatch = useDispatch();
+	// in order to display the now playing movies
+	useNowPlayingMovies();
 
-	const getNowPlayingMovies = async () => {
-		const data = await fetch(TMDB_NOW_PLAYING, TMDB_MOVIES_OPTIONS);
-		const json = await data.json();
+	//in order to display the trending movies
+	useTrendingMovies();
 
-		//in order to just fetch the movie results
-		const nowPlayingMovie = json?.results;
-
-		//adding this movie result into redux store
-		dispatch(addNowPlayingMovies(nowPlayingMovie));
-	};
-
-	//in order to fetch the movie list
-	useEffect(() => {
-		getNowPlayingMovies();
-	}, []);
-
-	return <div className=""></div>;
+	return (
+		<div className="">
+			<MainContainer />
+			<SecondaryContainer />
+			{/* 
+		Main container:
+		- Trailer :
+			- Title 
+			- Description
+		Secondary Container:
+			- card * n
+				- movies * n
+		*/}
+		</div>
+	);
 };
 
 export default BrowsePage;

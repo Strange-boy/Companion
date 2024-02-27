@@ -46,6 +46,17 @@
     - [X] Creating an application and fetching the access token
     - [X] fetching the now playing movies using access token
     - [X] Creating a movie slice in redux store and adding now playing movies
+    - [X] Adding Trending movies to the movie list
+- [X] Creating custom hooks
+    - [X] Now playing movies
+    - [X] Trending movies
+- [ ] Creating the browse page
+    - [ ] Main container (Trending movies)
+        - [ ] Video title , description
+        - [ ] Trailer in the background
+    - [ ] Secondary container
+     - [ ] Movie cards * n
+     - [ ] each movie card => m movies
 - [ ] Trending movie section
     - [ ] Trailer in Background
     - [ ] Title and Description

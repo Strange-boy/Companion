@@ -24,3 +24,6 @@ export const TMDB_MOVIES_OPTIONS = {
 		Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
 	},
 };
+
+export const TMDB_TRENDING_MOVIES =
+	"https://api.themoviedb.org/3/trending/movie/day?language=en-US";
