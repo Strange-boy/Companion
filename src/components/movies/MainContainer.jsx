@@ -1,6 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+//in order to import the components
+import VideoTitle from "./VideoTitle";
+import VideoBackground from "./VideoBackground";
+
 const MainContainer = () => {
 	const allTrendingMovies = useSelector(
 		(store) => store.movies?.trendingMovies
@@ -20,7 +24,14 @@ const MainContainer = () => {
 	const backgroundMovie = filteredTrendingMovies[randomIndex];
 	console.log(backgroundMovie);
 
-	return <div>MainContainer</div>;
+	const { original_title, overview } = backgroundMovie;
+
+	return (
+		<div>
+			<VideoTitle title={original_title} overview={overview} />
+			<VideoBackground />
+		</div>
+	);
 };
 
 export default MainContainer;

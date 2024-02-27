@@ -16,15 +16,6 @@ const BrowsePage = () => {
 		<div className="">
 			<MainContainer />
 			<SecondaryContainer />
-			{/* 
-		Main container:
-		- Trailer :
-			- Title 
-			- Description
-		Secondary Container:
-			- card * n
-				- movies * n
-		*/}
 		</div>
 	);
 };

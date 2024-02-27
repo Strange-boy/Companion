@@ -52,7 +52,7 @@
     - [X] Trending movies
 - [ ] Creating the browse page
     - [ ] Main container (Trending movies)
-        - [ ] Video title , description
+        - [X] Video title , description
         - [ ] Trailer in the background
     - [ ] Secondary container
      - [ ] Movie cards * n
