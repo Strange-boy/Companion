@@ -132,7 +132,6 @@ const LoginPage = () => {
 
 	return (
 		<div className="relative">
-			<Header />
 			{/* in order to display the background image */}
 			<div className="absolute">
 				<img

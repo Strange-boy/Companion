@@ -27,6 +27,7 @@ const Header = () => {
 						photoURL: photoURL,
 					})
 				);
+				// console.log("hello");
 
 				navigate("/browse");
 			} else {

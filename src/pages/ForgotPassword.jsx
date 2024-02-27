@@ -43,8 +43,6 @@ const ForgotPassword = () => {
 
 	return (
 		<div className="">
-			{/* first we need to import the header */}
-			<Header />
 			<div className="absolute w-full h-screen">
 				<img
 					src={NETFLIX_FORGOT_PASSWORD_IMG}

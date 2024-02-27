@@ -34,6 +34,9 @@
     - [X] Implement the sign out feature
         - [X] should show alert box with a creative message
         - [X] On clicking it navigate to log in page.
+- [ ] Giving Proper Layout and Structure
+    - [X] Structuring the Files according to component, utils, layouts and pages
+    - [ ] Defining Proper Layout for the pages
 - [ ] Setting up Protected Routes 
     - [X] Redirects the user to login page, session expires
     - [X] Redirects the user to main page, session is active
@@ -44,7 +47,7 @@
     - [ ] Title and Description
 - [ ] Movie Recommendation
     - [ ] a list of movies based on categories
-- [ ] Integrating Netflix into the project
+- [ ] Integrating TMDB into the project
     - [ ] Search bar
     - [ ] Movie suggestions based on GPT
 
