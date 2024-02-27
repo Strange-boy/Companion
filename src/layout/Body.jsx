@@ -14,25 +14,6 @@ import {
 } from "react-router-dom";
 
 const Body = () => {
-	// const appRouter = createBrowserRouter([
-	// 	{
-	// 		path: "/",
-	// 		element: <LoginPage />,
-	// 	},
-	// 	{
-	// 		path: "/browse",
-	// 		element: <BrowsePage />,
-	// 	},
-	// 	{
-	// 		path: "/forgot-password",
-	// 		element: <ForgotPassword />,
-	// 	},
-	// 	{
-	// 		path: "/settings",
-	// 		element: <UserSettings />,
-	// 	},
-	// ]);
-
 	const appRouter = createBrowserRouter(
 		createRoutesFromElements(
 			<Route path="/" element={<RootLayout />}>

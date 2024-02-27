@@ -34,22 +34,24 @@
     - [X] Implement the sign out feature
         - [X] should show alert box with a creative message
         - [X] On clicking it navigate to log in page.
-- [ ] Giving Proper Layout and Structure
+- [X] Giving Proper Layout and Structure
     - [X] Structuring the Files according to component, utils, layouts and pages
-    - [ ] Defining Proper Layout for the pages
+    - [X] Defining Proper Layout for the pages
 - [ ] Setting up Protected Routes 
     - [X] Redirects the user to login page, session expires
     - [X] Redirects the user to main page, session is active
-- [ ] Good practices
+- [X] Good practices
     - [X] Unsubscribing to on auth state change in useEffect to remove event listeners
+- [X] Integrating TMDB into the project
+    - [X] Creating an application and fetching the access token
+    - [X] fetching the now playing movies using access token
+    - [X] Creating a movie slice in redux store and adding now playing movies
 - [ ] Trending movie section
     - [ ] Trailer in Background
     - [ ] Title and Description
 - [ ] Movie Recommendation
     - [ ] a list of movies based on categories
-- [ ] Integrating TMDB into the project
-    - [ ] Search bar
-    - [ ] Movie suggestions based on GPT
+
 
 Optional:
 - [ ] Add the option to Login with Google

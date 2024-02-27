@@ -12,3 +12,15 @@ export const NETFLIX_FORGOT_PASSWORD_IMG =
 //custom image to be shown in user profile
 export const DEFAULT_USER_IMAGE =
 	"https://imgs.search.brave.com/lAwI4kVWDbKfA5jrMIbGtnZhzL3VdY5M44h34w_ofiA/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvZmVhdHVy/ZWQvbmV0ZmxpeC1w/cm9maWxlLXBpY3R1/cmVzLXczbHFyNjFx/ZTU3ZTl5dDguanBn";
+
+//tmdb options
+export const TMDB_NOW_PLAYING =
+	"https://api.themoviedb.org/3/movie/now_playing?page=1";
+
+export const TMDB_MOVIES_OPTIONS = {
+	method: "GET",
+	headers: {
+		accept: "application/json",
+		Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
+	},
+};
