@@ -54,7 +54,11 @@ export default function LogoutAlert() {
 		<AlertDialog>
 			<AlertDialogTrigger asChild>
 				<Button variant="icon">
-					<FontAwesomeIcon icon={faRightFromBracket} size="lg" />
+					<FontAwesomeIcon
+						icon={faRightFromBracket}
+						size="2xl"
+						style={{ color: "#e2e4e3" }}
+					/>
 				</Button>
 			</AlertDialogTrigger>
 			<AlertDialogContent className="bg-slate-900 opacity-70">

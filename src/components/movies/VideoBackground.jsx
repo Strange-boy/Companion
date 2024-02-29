@@ -1,5 +1,6 @@
 import useBackgroundTrailer from "@/hooks/useBackgroundTrailer";
 import { useSelector } from "react-redux";
+import ReactPlayer from "react-player";
 
 const VideoBackground = ({ movieId }) => {
 	const trailerVideo = useSelector((store) => store.movies?.backgroundTrailer);
@@ -8,14 +9,17 @@ const VideoBackground = ({ movieId }) => {
 	useBackgroundTrailer(movieId);
 
 	return (
-		<div>
-			<iframe
-				width="560"
-				height="315"
-				src={"https://www.youtube.com/embed/" + trailerVideo?.key}
-				title="YouTube video player"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-			></iframe>
+		<div className="w-screen aspect-video bg-slate-600">
+			<ReactPlayer
+				url={`https://www.youtube.com/watch?v=${trailerVideo?.key}`}
+				loop={true}
+				controls={false}
+				volume={0}
+				muted={true}
+				playing={true}
+				width="100%"
+				height="100%"
+			/>
 		</div>
 	);
 };

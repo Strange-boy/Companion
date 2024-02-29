@@ -47,9 +47,17 @@ export default function HeaderDropDown() {
 						className="w-8 rounded-md mx-2"
 					/>
 					{dropDown ? (
-						<FontAwesomeIcon icon={faChevronUp} />
+						<FontAwesomeIcon
+							icon={faChevronUp}
+							size="xl"
+							style={{ color: "#eff1f6" }}
+						/>
 					) : (
-						<FontAwesomeIcon icon={faChevronDown} />
+						<FontAwesomeIcon
+							icon={faChevronDown}
+							size="xl"
+							style={{ color: "#f8f9fc" }}
+						/>
 					)}
 				</Button>
 			</DropdownMenuTrigger>

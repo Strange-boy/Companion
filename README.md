@@ -52,9 +52,9 @@
     - [X] Trending movies
     - [X] Background trailer videos
 - [ ] Creating the browse page
-    - [ ] Main container (Trending movies)
+    - [X] Main container (Trending movies)
         - [X] Video title , description
-        - [ ] Trailer in the background
+        - [X] Trailer in the background
     - [ ] Secondary container
      - [ ] Movie cards * n
      - [ ] each movie card => m movies
@@ -85,6 +85,11 @@ Optional:
     - 🍪 Explored about cookies and need for cookies
 - Tried to implement a drop down along with alert box (had issues with state) - after drop down closes , alert automatically closes (shadcn-ui).
     - [X] Solved the issue by sperating log out button
+- How to fetch the trailer videos from the TMDB API and display on the page
+    - solved by reading the documentation of api
+-🎮 Playing the trailer videos on loop 
+    - initially setted up video playing with iframe => React player
+    - struggle a lot to make react player to aspect ratio
 - 🛒 Tried using Redux ToolKit for state management 
     - 📌 Forgot about the data flow, had to go through it again
 - 🛡️ Need of .env file to store the api keys
