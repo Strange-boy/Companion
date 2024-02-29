@@ -20,10 +20,8 @@ const MainContainer = () => {
 	);
 
 	//select a random movie
-	const randomIndex = Math.floor(Math.random() * filteredTrendingMovies.length);
-	const backgroundMovie = filteredTrendingMovies[randomIndex];
-	// console.log(backgroundMovie);
-
+	const backgroundMovie = filteredTrendingMovies[2];
+	console.log(backgroundMovie);
 	const { id, original_title, overview } = backgroundMovie;
 
 	return (

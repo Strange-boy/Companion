@@ -4,7 +4,6 @@ import { faPlay, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
 const VideoTitle = ({ title, overview }) => {
 	// Split the sentence into clauses based on commas and semicolons
-
 	const clauses = overview.split(/[,;.]+/);
 
 	// Shorten the sentence to 2-3 clauses and add "..."
@@ -19,14 +18,14 @@ const VideoTitle = ({ title, overview }) => {
 				"{trimmedSentence}"
 			</p>
 			<div>
-				<Button size="lg" className="opacity-">
+				<Button size="lg" className="lg:text-xl lg:p-6">
 					<FontAwesomeIcon icon={faPlay} />
 					<p className="px-2 text-base font-semibold">Play Trailer</p>
 				</Button>
 				<Button
 					size="lg"
 					variant="outline"
-					className="ml-2 border-4 border-slate-900  bg-transparent text-white"
+					className="ml-2 border-4 border-slate-900  bg-transparent text-white lg:text-xl lg:p-6"
 				>
 					<FontAwesomeIcon icon={faCircleInfo} />
 					<p className="px-2 text-base font-semibold">More Info</p>

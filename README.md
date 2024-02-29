@@ -89,9 +89,14 @@ Optional:
     - solved by reading the documentation of api
 -🎮 Playing the trailer videos on loop 
     - initially setted up video playing with iframe => React player
-    - struggle a lot to make react player to aspect ratio
+    - struggle a lot to make react player to aspect ratio w-100
+    - inconsistency in movie displaying different movie rendered and different movie displayed
 - 🛒 Tried using Redux ToolKit for state management 
     - 📌 Forgot about the data flow, had to go through it again
 - 🛡️ Need of .env file to store the api keys
     - your api keys should be protected, so I created env file to store the api keys
     - There is a specific way of doing it for vite, refer the vite dox on env variables.
+- 📽️ Tried my best to integrate random videos when user logs in
+    - faced issue with inconsistency in data
+    - showed random title and random video
+    - rather solving in the client side => solved in the backend part

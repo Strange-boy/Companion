@@ -13,7 +13,7 @@ const BrowsePage = () => {
 	useTrendingMovies();
 
 	return (
-		<div className="">
+		<div className="bg-slate-800 min-h-screen">
 			<MainContainer />
 			<SecondaryContainer />
 		</div>
