@@ -22,14 +22,14 @@ const MainContainer = () => {
 	//select a random movie
 	const randomIndex = Math.floor(Math.random() * filteredTrendingMovies.length);
 	const backgroundMovie = filteredTrendingMovies[randomIndex];
-	console.log(backgroundMovie);
+	// console.log(backgroundMovie);
 
-	const { original_title, overview } = backgroundMovie;
+	const { id, original_title, overview } = backgroundMovie;
 
 	return (
 		<div>
 			<VideoTitle title={original_title} overview={overview} />
-			<VideoBackground />
+			<VideoBackground movieId={id} />
 		</div>
 	);
 };

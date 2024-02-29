@@ -50,6 +50,7 @@
 - [X] Creating custom hooks
     - [X] Now playing movies
     - [X] Trending movies
+    - [X] Background trailer videos
 - [ ] Creating the browse page
     - [ ] Main container (Trending movies)
         - [X] Video title , description
